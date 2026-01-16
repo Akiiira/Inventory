@@ -41,20 +41,31 @@
         .segmented-control {
             @apply bg-slate-100 dark:bg-slate-800 p-1 rounded-xl flex;
         }
-        .segmented-option {
+        .segmented-control input[type="radio"] {
+            display: none;
+        }
+        .segmented-control label {
             @apply flex-1 py-2 text-sm font-semibold rounded-lg text-center transition-all cursor-pointer;
-        }
-        .segmented-option.active {
-            @apply bg-white dark:bg-slate-700 shadow-sm text-slate-900 dark:text-white;
-        }
-        .segmented-option.inactive {
             @apply text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200;
+        }
+        .segmented-control input[type="radio"]:checked + label {
+            @apply bg-white dark:bg-slate-700 shadow-sm text-slate-900 dark:text-white;
         }
         .nested-card {
             @apply border border-slate-200 dark:border-slate-800 rounded-2xl relative mt-8;
         }
         .nested-label {
             @apply absolute -top-3.5 left-6 bg-slate-500 text-white text-[10px] font-bold px-3 py-1 rounded-md uppercase tracking-wider;
+        }
+        /* Conditional display based on develop type selection */
+        .develop-content {
+            display: none;
+        }
+        .develop-type-container:has(#develop-internal:checked) .develop-internal-content {
+            display: block;
+        }
+        .develop-type-container:has(#develop-external:checked) .develop-external-content {
+            display: block;
         }
     </style>
 </head>
@@ -167,6 +178,12 @@
 </label>
 <select class="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary text-slate-900 dark:text-slate-100 appearance-none">
 <option>Select Status</option>
+<option>Active</option>
+<option>Retired</option>
+<option>Plan to Retire</option>
+<option>Under Evaluation</option>
+<option>Not Application</option>
+<option>Mark Delete</option>
 </select>
 </div>
 <div class="col-span-1">
@@ -175,23 +192,57 @@
 </label>
 <input class="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary text-slate-900 dark:text-slate-100" placeholder="e.g. 1000" type="text"/>
 </div>
-<div class="col-start-1 col-span-1">
+<div class="col-start-1 col-span-2">
 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                             Develop Type <span class="text-red-500">*</span> <span class="material-symbols-outlined align-middle ml-1 text-slate-400 cursor-help">info</span>
 </label>
-<div class="segmented-control w-full">
-<div class="segmented-option active">Internal</div>
-<div class="segmented-option inactive">External</div>
+<div class="develop-type-container">
+<div class="segmented-control w-1/2">
+<input type="radio" id="develop-internal" name="developType" value="internal" checked>
+<label for="develop-internal">Internal</label>
+<input type="radio" id="develop-external" name="developType" value="external">
+<label for="develop-external">External</label>
 </div>
-</div>
-</div>
-<div class="nested-card p-8 pb-10">
+<div class="develop-content develop-internal-content nested-card p-8 pb-10">
 <span class="nested-label">Internal Details</span>
 <div>
 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                             Department <span class="text-red-500">*</span> <span class="material-symbols-outlined align-middle ml-1 text-slate-400 cursor-help">info</span>
 </label>
 <input class="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary text-slate-900 dark:text-slate-100" placeholder="e.g. IT Operations" type="text"/>
+</div>
+</div>
+<!-- External Details Card -->
+<div class="develop-content develop-external-content nested-card p-8 pb-10">
+<span class="nested-label">External Details</span>
+<div class="grid grid-cols-2 gap-x-8 gap-y-8">
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                                Company <span class="text-red-500">*</span> <span class="material-symbols-outlined align-middle ml-1 text-slate-400 cursor-help">info</span>
+</label>
+<input class="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary text-slate-900 dark:text-slate-100" placeholder="e.g. Acme Corp" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                                Name <span class="text-red-500">*</span> <span class="material-symbols-outlined align-middle ml-1 text-slate-400 cursor-help">info</span>
+</label>
+<input class="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary text-slate-900 dark:text-slate-100" placeholder="e.g. John Doe" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                                Email <span class="text-red-500">*</span> <span class="material-symbols-outlined align-middle ml-1 text-slate-400 cursor-help">info</span>
+</label>
+<input class="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary text-slate-900 dark:text-slate-100" placeholder="e.g. contact@company.com" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                                Phone <span class="text-red-500">*</span> <span class="material-symbols-outlined align-middle ml-1 text-slate-400 cursor-help">info</span>
+</label>
+<input class="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary text-slate-900 dark:text-slate-100" placeholder="e.g. +66 812345678" type="tel"/>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="nested-card p-8 pb-10">
@@ -220,7 +271,7 @@
       <span>Back</span>
     </a>
 
-    <a href="../../../stitch_app_inventory/stitch_register_application_general_details/2.2.4/code.html"
+    <a href="../../../stitch_app_inventory/stitch_register_application_general_details/2.2.5/code.html"
        class="px-10 py-3 rounded-xl bg-primary text-white font-bold hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all flex items-center space-x-2">
       <span>Next</span>
       <span class="material-symbols-outlined text-xl">east</span>
