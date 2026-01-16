@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Icons+Outlined&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; }
+      .material-icons-outlined { vertical-align: middle; font-size: 20px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<nav class="flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium" href="#">Home</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium" href="#">My Task</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium" href="#">Report</a>
+<button class="flex items-center text-primary text-sm font-medium">
+                    Main
+                    <span class="material-icons-outlined ml-1 !text-sm">expand_more</span>
+</button>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-icons-outlined">search</span>
+</button>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 relative">
+<span class="material-icons-outlined">notifications</span>
+<span class="absolute top-0.5 right-0.5 block h-2 w-2 rounded-full bg-red-500 border-2 border-white dark:border-slate-900"></span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+<div class="flex items-center space-x-3">
+<div class="text-right">
+<p class="text-sm font-semibold leading-none">Admin User</p>
+<p class="text-xs text-slate-400 mt-1">IT Operations</p>
+</div>
+<img alt="User profile" class="h-10 w-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6eBRP90CIpfGb4qpRbyMm6QJ8YsZK-tF3fqTRUAHS_sp6pN-tn-mQE2HPDmgLBPdGvj5ttObIcecGsjgXyL6s79E4C7zvEgo65djhd55MFh_c2onYzc5jLtVEcmjCRK7DUgde53wQ_gcr9LmOWRzTMHMPVl35ipGD3bnTOjiJy5BPd-hGQ9sr7ccgXjXSxZcEuHBa2c8Cp1NThWTDzwWsrK4lDkdrqA4ZitsO3DXKjebapxJQNE75mUIn6WoNfRhsp9aM6O1rVHw"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-7xl mx-auto px-6 py-8 w-full">
+<nav class="flex text-sm text-slate-400 mb-4">
+<span class="hover:text-slate-600">Main</span>
+<span class="mx-2">/</span>
+<span class="text-slate-600 dark:text-slate-300 font-medium">User Management</span>
+</nav>
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">User Management</h1>
+<p class="text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
+                Modify user roles and account statuses. Deletion of user accounts is restricted to super-administrators.
+            </p>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div class="flex flex-1 items-center gap-3">
+<div class="relative flex-grow max-w-md">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary" placeholder="Search users by name or email..." type="text"/>
+</div>
+<div class="relative">
+<select class="appearance-none pl-4 pr-10 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium focus:ring-primary focus:border-primary min-w-[140px]">
+<option>All Roles</option>
+<option>Admin</option>
+<option>Editor</option>
+</select>
+<span class="material-icons-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                    Search
+                </button>
+</div>
+<button class="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-outlined !text-sm">download</span>
+                Export Data
+            </button>
+</div>
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead>
+<tr class="border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50 text-[11px] font-bold tracking-wider text-slate-400 uppercase">
+<th class="px-6 py-4 font-semibold">User</th>
+<th class="px-6 py-4 font-semibold">Role</th>
+<th class="px-6 py-4 font-semibold">Permissions</th>
+<th class="px-6 py-4 font-semibold">Status</th>
+<th class="px-6 py-4 font-semibold">Last Active</th>
+<th class="px-6 py-4 font-semibold">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 font-semibold text-xs">JS</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">John Smith</p>
+<p class="text-xs text-slate-400">john.smith@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">qa</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">Test Execution, Bug Tracking</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400">
+<span class="w-1 h-1 bg-green-600 dark:bg-green-400 rounded-full mr-1.5"></span>
+                                    Active
+                                </span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">Just now</td>
+<td class="px-6 py-4">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-purple-600 dark:text-purple-400 font-semibold text-xs">AD</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">Alice Doe</p>
+<p class="text-xs text-slate-400">alice.doe@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">infra</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">Infrastructure Mgmt, System Logs</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400">
+<span class="w-1 h-1 bg-green-600 dark:bg-green-400 rounded-full mr-1.5"></span>
+                                    Active
+                                </span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">2 hours ago</td>
+<td class="px-6 py-4">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Robert Brown" class="h-9 w-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOSxDWMz6t1kIJlKL4Y0-Q4mIZ9ksIroSlFNQgmxAdyOb8rzlhHxz0Gbo2DGwri1ieMucfGFo7eZnsYWGY88JIsveqzk5pRKTcz5Yribhu98OH_glqWSbjQsM_d_1hBdFxPIbicsLbByRloQvI2JdYIDud5yQgxW1K4QVQdbGri49NVn6Hil6AuztoCEBhgDdsnOlIkIIXWhoe0BSSlZelx-6BK62fQS-nXYDo6df-iLrcwZ2unEta2RP7w2gdZz7SFWhs0bFCDjs"/>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">Robert Brown</p>
+<p class="text-xs text-slate-400">robert.b@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">requester</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">Register App, View My Tasks</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400">
+<span class="w-1 h-1 bg-orange-600 dark:bg-orange-400 rounded-full mr-1.5"></span>
+                                    Invited
+                                </span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">Never</td>
+<td class="px-6 py-4">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-semibold text-xs">EM</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">Emily Mars</p>
+<p class="text-xs text-slate-400">emily.mars@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">network</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">Firewall Configuration, Network Analysis</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+<span class="w-1 h-1 bg-slate-500 dark:bg-slate-400 rounded-full mr-1.5"></span>
+                                    Inactive
+                                </span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">30 days ago</td>
+<td class="px-6 py-4">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-400">Showing 1 to 4 of 24 results</p>
+<div class="flex items-center space-x-2">
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Previous</button>
+<button class="h-9 w-9 flex items-center justify-center bg-primary text-white rounded-lg text-sm font-medium">1</button>
+<button class="h-9 w-9 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">2</button>
+<button class="h-9 w-9 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">3</button>
+<span class="text-slate-400 text-sm px-2">...</span>
+<button class="h-9 w-9 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">6</button>
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Next</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="py-12 flex justify-center border-t border-slate-200 dark:border-slate-800">
+<p class="text-xs text-slate-400">© 2023 IT Infrastructure Dashboard. All rights reserved.</p>
+</footer>
+
+</body></html>

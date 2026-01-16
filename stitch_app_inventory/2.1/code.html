@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Dashboard - Tech Radar</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3B82F6",
+            "background-light": "#F3F4F6",
+            "background-dark": "#111827",
+            "surface-light": "#FFFFFF",
+            "surface-dark": "#1F2937",
+            "text-primary-light": "#111827",
+            "text-primary-dark": "#F9FAFB",
+            "text-secondary-light": "#6B7280",
+            "text-secondary-dark": "#9CA3AF",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #CBD5E1; border-radius: 20px; }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #4B5563; }
+
+    .group:hover .group-hover\:block {
+      display: block;
+      animation: fadeIn 0.2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .radar-circle { border-radius: 50%; border: 1px solid #E5E7EB; }
+    .dark .radar-circle { border-color: #374151; }
+    .radar-segment { position: absolute; transform-origin: center; }
+
+    /* ✅ Navbar active underline (เหมือนรูป My Tasks) */
+    .nav-active {
+      position: relative;
+      color: #2563eb; /* blue-600 */
+      font-weight: 700;
+    }
+    .nav-active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -18px;
+      width: 100%;
+      height: 3px;
+      background: #2563eb;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-primary-light dark:text-text-primary-dark transition-colors duration-200 min-h-screen flex flex-col">
+
+  <!-- ✅ Navbar ใหม่ (เหมือนรูป My Tasks) -->
+  <nav class="bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 z-50 sticky top-0">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="h-16 flex items-center justify-between">
+
+        <!-- LEFT: menu -->
+        <div class="flex items-center gap-8">
+          <a
+            href="/Users/pornlavin/Downloads/stitch_app_inventory/2/code.html"
+            class="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            Home
+          </a>
+
+          <!-- ✅ หน้านี้เป็น Dashboard ให้ active ตรงนี้ -->
+          <a
+            href="/Users/pornlavin/Downloads/stitch_app_inventory/2.1/code.html"
+            class="nav-active text-sm tracking-tight"
+          >
+            Dashboard
+          </a>
+
+          <a
+            href="/Users/pornlavin/Downloads/stitch_app_inventory/2.2/code.html"
+            class="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            My Task
+          </a>
+
+          <a
+            href="/Users/pornlavin/Downloads/stitch_app_inventory/2.3/code.html"
+            class="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            Report
+          </a>
+        </div>
+
+        <!-- RIGHT: icons + user -->
+        <div class="flex items-center gap-4">
+          <button class="w-10 h-10 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+            <span class="material-icons-outlined text-[22px]">search</span>
+          </button>
+
+          <div class="relative">
+            <button class="w-10 h-10 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+              <span class="material-icons-outlined text-[22px]">notifications</span>
+            </button>
+            <span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500"></span>
+          </div>
+
+          <div class="h-8 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
+
+          <div class="flex items-center gap-3">
+            <div class="text-right leading-tight hidden sm:block">
+              <div class="text-sm font-semibold text-gray-800 dark:text-gray-200">Admin User</div>
+              <div class="text-[11px] text-gray-500 dark:text-gray-400">IT Operations</div>
+            </div>
+
+            <div class="h-10 w-10 rounded-full bg-orange-200 flex items-center justify-center text-orange-600 border border-orange-200/60 overflow-hidden">
+              <span class="material-icons-outlined text-[22px]">person</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 min-h-[600px] flex flex-col p-6">
+      <div class="mb-6 flex justify-between items-start">
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Technology Radar</h1>
+      </div>
+
+      <div class="flex flex-col lg:flex-row h-full gap-8">
+        <div class="flex-1 relative min-h-[500px] flex items-center justify-center">
+          <div class="absolute w-full h-px bg-gray-200 dark:bg-gray-700 top-1/2 left-0 transform -translate-y-1/2"></div>
+          <div class="absolute h-full w-px bg-gray-200 dark:bg-gray-700 left-1/2 top-0 transform -translate-x-1/2"></div>
+          <div class="absolute w-full h-px bg-gray-200 dark:bg-gray-700 top-1/2 left-0 transform -translate-y-1/2 rotate-45"></div>
+          <div class="absolute w-full h-px bg-gray-200 dark:bg-gray-700 top-1/2 left-0 transform -translate-y-1/2 -rotate-45"></div>
+
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-[450px] h-[450px] radar-circle relative flex items-center justify-center">
+              <div class="absolute top-3 bg-surface-light dark:bg-surface-dark px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 shadow-sm z-10 select-none">End of Support</div>
+
+              <div class="w-[350px] h-[350px] radar-circle relative flex items-center justify-center">
+                <div class="absolute top-3 bg-surface-light dark:bg-surface-dark px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 shadow-sm z-10 select-none">Common Support</div>
+
+                <div class="w-[250px] h-[250px] radar-circle relative flex items-center justify-center">
+                  <div class="absolute top-3 bg-surface-light dark:bg-surface-dark px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 shadow-sm z-10 select-none">Security Support</div>
+
+                  <div class="w-[150px] h-[150px] radar-circle relative flex items-center justify-center bg-gray-50 dark:bg-gray-800/50">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 select-none">Full Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute top-[20%] right-[20%] font-bold text-gray-500 dark:text-gray-400">Server</div>
+          <div class="absolute bottom-[20%] right-[20%] font-bold text-gray-500 dark:text-gray-400">Database</div>
+          <div class="absolute top-1/2 left-[5%] transform -translate-y-1/2 font-bold text-gray-800 dark:text-gray-200">Framework</div>
+
+          <div class="absolute w-[280px] h-[280px] rounded-full border-[12px] border-orange-500 border-t-transparent border-r-transparent border-b-transparent opacity-90 transform -rotate-45 left-[22%] top-[22%] pointer-events-none" style="clip-path: polygon(0 0, 0 100%, 50% 50%);"></div>
+          <div class="absolute w-[360px] h-[360px] rounded-full border-[10px] border-blue-500 border-l-transparent border-b-transparent border-r-transparent opacity-80 transform rotate-12 top-[13%] left-[13%] pointer-events-none" style="clip-path: polygon(50% 0, 100% 0, 50% 50%);"></div>
+          <div class="absolute w-[260px] h-[260px] rounded-full border-[10px] border-blue-600 border-l-transparent border-b-transparent border-r-transparent opacity-80 transform -rotate-12 top-[24%] left-[24%] pointer-events-none" style="clip-path: polygon(50% 0, 100% 0, 50% 50%);"></div>
+
+          <div class="absolute bottom-[25%] right-[35%] w-3 h-3 bg-green-600 rounded-full cursor-pointer hover:ring-2 ring-green-300" title="PTT – Defensive Driving"></div>
+          <div class="absolute bottom-[28%] right-[32%] w-3 h-3 bg-green-600 rounded-full cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[22%] right-[38%] w-3 h-3 bg-green-600 rounded-full cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[18%] right-[42%] w-3 h-3 bg-green-600 rounded-full cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[35%] right-[25%] w-3 h-3 bg-green-600 rounded-full cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[32%] right-[28%] w-3 h-3 bg-green-600 rounded-full cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[15%] right-[25%] w-4 h-4 bg-green-600 rounded-full opacity-80 cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[12%] right-[28%] w-4 h-4 bg-green-600 rounded-full opacity-80 cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[18%] right-[22%] w-4 h-4 bg-green-600 rounded-full opacity-80 cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[45%] right-[48%] w-3 h-3 bg-green-600 rounded-full cursor-pointer hover:ring-2 ring-green-300"></div>
+          <div class="absolute bottom-[42%] right-[45%] w-3 h-3 bg-green-600 rounded-full cursor-pointer hover:ring-2 ring-green-300"></div>
+        </div>
+
+        <div class="w-full lg:w-[400px] flex flex-col space-y-8">
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-3">Categories</h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-center text-gray-600 dark:text-gray-300">
+                  <span class="w-3 h-3 rounded-full bg-green-500 mr-2"></span> Database
+                </li>
+                <li class="flex items-center text-gray-600 dark:text-gray-300">
+                  <span class="w-3 h-3 rounded-full bg-orange-500 mr-2"></span> Framework
+                </li>
+                <li class="flex items-center text-gray-600 dark:text-gray-300">
+                  <span class="w-3 h-3 rounded-full bg-blue-500 mr-2"></span> Server
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-3">Rings</h3>
+              <ol class="space-y-2 text-sm list-decimal list-inside text-gray-600 dark:text-gray-300">
+                <li>Full Support</li>
+                <li>Security Support</li>
+                <li>Common Support</li>
+                <li>End of support</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="flex-1 flex flex-col min-h-0">
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Items (3817)</h3>
+            <div class="overflow-y-auto custom-scrollbar pr-2 flex-1 max-h-[400px]">
+              <ul class="space-y-4">
+                <li class="flex items-start justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded transition-colors">
+                  <div class="flex items-start">
+                    <span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 mr-3 flex-shrink-0"></span>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">PTT – Defensive Driving</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">Microsoft SQL Server 2019</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400 whitespace-nowrap">Security Support</span>
+                </li>
+
+                <li class="flex items-start justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded transition-colors">
+                  <div class="flex items-start">
+                    <span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 mr-3 flex-shrink-0"></span>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">PTT – Defensive Driving</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">Microsoft SQL Server 2019</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400 whitespace-nowrap">Security Support</span>
+                </li>
+
+                <li class="flex items-start justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded transition-colors">
+                  <div class="flex items-start">
+                    <span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 mr-3 flex-shrink-0"></span>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">PTT – Defensive Driving</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">Microsoft SQL Server 2019</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400 whitespace-nowrap">Security Support</span>
+                </li>
+
+                <li class="flex items-start justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded transition-colors">
+                  <div class="flex items-start">
+                    <span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 mr-3 flex-shrink-0"></span>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">PTT – Defensive Driving</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">Microsoft SQL Server 2019</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400 whitespace-nowrap">Security Support</span>
+                </li>
+
+                <li class="flex items-start justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded transition-colors">
+                  <div class="flex items-start">
+                    <span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 mr-3 flex-shrink-0"></span>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">PTTEP GitLab</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">PostgreSQL 13</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400 whitespace-nowrap">Security Support</span>
+                </li>
+
+                <li class="flex items-start justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded transition-colors">
+                  <div class="flex items-start">
+                    <span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 mr-3 flex-shrink-0"></span>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">PTTEP GitLab</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">PostgreSQL 13</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400 whitespace-nowrap">Security Support</span>
+                </li>
+
+                <li class="flex items-start justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded transition-colors">
+                  <div class="flex items-start">
+                    <span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 mr-3 flex-shrink-0"></span>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">PTT-TAS คลังก๊าซบ้านโรงโป๊ะ</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">Oracle DB Server 11g R2</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400 whitespace-nowrap">Common Support</span>
+                </li>
+
+                <li class="flex items-start justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded transition-colors">
+                  <div class="flex items-start">
+                    <span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 mr-3 flex-shrink-0"></span>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900 dark:text-white">PTT NGV DMS Monitoring</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">Oracle DB Server 11g R2</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400 whitespace-nowrap">Common Support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-700 py-4 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+      <p>© 2024 Enterprise IT Management. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

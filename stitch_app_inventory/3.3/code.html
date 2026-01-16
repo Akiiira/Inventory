@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Export Frameworks Report</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }input[type="radio"]:checked, 
+        input[type="checkbox"]:checked {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen relative overflow-hidden">
+<div class="fixed inset-0 z-0 overflow-hidden filter blur-sm">
+<header class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-8 h-16 flex items-center justify-between">
+<div class="flex items-center space-x-8">
+<div class="flex items-center space-x-6">
+<span class="text-gray-500 dark:text-gray-400 font-medium">Dashboard</span>
+<span class="text-gray-500 dark:text-gray-400 font-medium">My Task</span>
+<span class="text-primary font-semibold border-b-2 border-primary h-16 flex items-center">Report</span>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<span class="material-icons text-gray-400">search</span>
+<div class="relative">
+<span class="material-icons text-gray-400">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-gray-900"></span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="text-right">
+<p class="text-sm font-semibold dark:text-white">Admin User</p>
+<p class="text-xs text-gray-500">IT Operations</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+<img alt="Admin user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_JrIPX_lt7D_FmMJg26R2VRjq8b7PYbxumPX27MkMCoZXcYheFJonRheAVLT0G2eCdEg3TqWw0hk78ykIAkoFtzm-MB00PvXOxLRW7x7iKk-wyY8rTO_0B79NcyqnT-pmPqwHIUmlGwXELEzS5K0sDqxymO96d1Df5pbVZ9yKOtR7fMRubR_VclKpKeI_Ev8cY0iHxEnllalUlgDBwXPofrlopjgCLIqXe0HCFLOzRViq1ZgaiRxlhVMxipfHgFHFeOYPrP7CJjc"/>
+</div>
+</div>
+</div>
+</header>
+<main class="p-8">
+<nav class="text-xs text-gray-400 mb-4">
+                Report / <span class="text-gray-600 dark:text-gray-300">Frameworks</span>
+</nav>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-2xl font-bold dark:text-white mb-2">Frameworks Inventory</h1>
+<p class="text-gray-500 text-sm">Detailed view of framework adoption and system dependencies across the organization.</p>
+</div>
+<button class="flex items-center space-x-2 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300">
+<span class="material-icons text-sm">file_download</span>
+<span>Export Data</span>
+</button>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+<div class="p-4 border-b border-gray-200 dark:border-gray-800">
+<div class="relative w-72">
+<span class="material-icons absolute left-3 top-2.5 text-gray-400 text-sm">search</span>
+<input class="pl-10 w-full text-sm border-gray-200 dark:border-gray-700 dark:bg-gray-800 rounded-lg" disabled="" placeholder="Search frameworks..." type="text"/>
+</div>
+</div>
+<div class="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider flex justify-between">
+<span>Framework Name</span>
+<span>Connected Apps</span>
+</div>
+<div class="px-6 py-6 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 rounded flex items-center justify-center">
+<span class="text-blue-600 font-bold">R</span>
+</div>
+<span class="font-medium dark:text-white">React</span>
+</div>
+<span class="text-sm text-gray-500 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">14 Applications</span>
+</div>
+</div>
+</main>
+</div>
+<div class="fixed inset-0 z-10 bg-slate-900/50 dark:bg-black/70 backdrop-blur-[2px] flex items-center justify-center p-4">
+<div class="bg-white dark:bg-gray-900 w-full max-w-2xl rounded-2xl shadow-2xl animate-in fade-in zoom-in duration-300">
+<div class="flex items-center justify-between px-8 py-6 border-b border-gray-100 dark:border-gray-800">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Export Frameworks Report</h2>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
+<span class="material-icons">close</span>
+</button>
+</div>
+<div class="px-8 py-6 space-y-6">
+<div class="space-y-4">
+<h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100">Selection Method</h3>
+<div class="space-y-3">
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="w-5 h-5 border-gray-300 dark:border-gray-600 focus:ring-primary text-primary" name="selectionMethod" type="radio"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">All Records</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 border-gray-300 dark:border-gray-600 focus:ring-primary text-primary" name="selectionMethod" type="radio"/>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">Filter by Criteria</span>
+</label>
+</div>
+</div>
+<div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-gray-50/50 dark:bg-gray-800/30">
+<div class="p-4 bg-white dark:bg-gray-800/50">
+<div class="relative">
+<span class="material-icons absolute left-3 top-2.5 text-gray-400 text-sm">search</span>
+<input class="pl-10 w-full py-2 text-sm border-gray-100 dark:border-gray-700 dark:bg-gray-800/80 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-gray-400" placeholder="Search frameworks..." type="text"/>
+</div>
+</div>
+<div class="p-4 max-h-80 overflow-y-auto space-y-4">
+<div class="space-y-3">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-bold text-gray-900 dark:text-white">React</span>
+</label>
+<div class="ml-8 space-y-3">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input class="w-4 h-4 border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" name="reactOption" type="radio"/>
+<span class="text-sm text-gray-600 dark:text-gray-400">Export all versions</span>
+</label>
+<div class="space-y-3">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input checked="" class="w-4 h-4 border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" name="reactOption" type="radio"/>
+<span class="text-sm text-gray-600 dark:text-gray-400">Select versions</span>
+</label>
+<div class="ml-7 flex items-center space-x-6">
+<label class="flex items-center space-x-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-400">v18.2.0</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input class="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-400">v17.0.2</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-3 pt-2">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-bold text-gray-900 dark:text-white">Vue.js</span>
+</label>
+<div class="ml-8 space-y-3">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input checked="" class="w-4 h-4 border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" name="vueOption" type="radio"/>
+<span class="text-sm text-gray-600 dark:text-gray-400">Export all versions</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer">
+<input class="w-4 h-4 border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" name="vueOption" type="radio"/>
+<span class="text-sm text-gray-600 dark:text-gray-400">Select versions</span>
+</label>
+</div>
+</div>
+<div class="pt-2">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input class="w-5 h-5 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-bold text-gray-900 dark:text-white">Angular</span>
+</label>
+</div>
+<div class="pt-2">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input class="w-5 h-5 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-bold text-gray-900 dark:text-white">Django</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end px-8 py-6 bg-gray-50 dark:bg-gray-800/50 rounded-b-2xl space-x-4 border-t border-gray-100 dark:border-gray-800">
+<button class="px-6 py-2.5 text-sm font-semibold text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                    Cancel
+                </button>
+<button class="px-6 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-blue-700 rounded-lg shadow-sm shadow-blue-200 dark:shadow-none transition-all">
+                    Export CSV
+                </button>
+</div>
+</div>
+</div>
+<div class="fixed bottom-4 right-4 z-50">
+<button class="p-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full shadow-lg text-gray-500 dark:text-gray-400" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons text-xl block dark:hidden">dark_mode</span>
+<span class="material-icons text-xl hidden dark:block">light_mode</span>
+</button>
+</div>
+
+</body></html>

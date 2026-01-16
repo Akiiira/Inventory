@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Framework Detail Report Screen</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1e293b",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              'xl': '0.75rem',
+              '2xl': '1rem',
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .active-nav {
+            color: #2563eb;
+            position: relative;
+        }
+        .active-nav::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="bg-surface-light dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+<nav class="flex items-center space-x-10 h-full">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium" href="#">Home</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium" href="#">My Task</a>
+<a class="active-nav font-semibold" href="#">Report</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons-outlined">search</span>
+</button>
+<button class="relative text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons-outlined">notifications</span>
+<span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-surface-dark"></span>
+</button>
+<div class="flex items-center space-x-3 border-l border-slate-200 dark:border-slate-700 pl-6">
+<div class="text-right">
+<p class="text-sm font-semibold text-slate-900 dark:text-white leading-tight">Admin User</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">IT Operations</p>
+</div>
+<div class="h-9 w-9 rounded-full bg-amber-100 dark:bg-amber-900 flex items-center justify-center overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD46WhO1IhMrr-B0BkhzNmJ8GKOxL8ZJ68mf89eUtOEMlSbdj4lBPCfKoSscPlGy3aee2UeOELsWYsfoIi97D28fdT4GKmc2P8CytExDd2a6XM-q0lMh784rt1uAvV_h9caUbsbWzK3kDFZE21B3oem1_tkhsQNncTGFfBrbgLsarGJnb0N2rw23U5soCInYchptISIjwxrRazZcNQwxgRAtPmDPDzmynHAih33zVA08_Ol-GawoHUlrhIPFslwqtJG-u6wHJdmJAY"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-[1400px] w-full mx-auto px-6 py-6">
+<nav class="flex text-xs text-slate-400 dark:text-slate-500 mb-6 font-medium tracking-wide">
+<span class="hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer">Report</span>
+<span class="mx-2">/</span>
+<span class="hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer">Frameworks</span>
+<span class="mx-2">/</span>
+<span class="text-slate-600 dark:text-slate-300">React</span>
+</nav>
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-8 mb-6 shadow-sm">
+<div class="flex items-start">
+<div class="flex-shrink-0 w-24 h-24 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center border border-blue-100 dark:border-blue-800">
+<svg class="w-16 h-16 text-blue-400" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="currentColor" r="8"></circle>
+<ellipse cx="50" cy="50" fill="none" rx="36" ry="14" stroke="currentColor" stroke-width="2.5" transform="rotate(0 50 50)"></ellipse>
+<ellipse cx="50" cy="50" fill="none" rx="36" ry="14" stroke="currentColor" stroke-width="2.5" transform="rotate(60 50 50)"></ellipse>
+<ellipse cx="50" cy="50" fill="none" rx="36" ry="14" stroke="currentColor" stroke-width="2.5" transform="rotate(120 50 50)"></ellipse>
+</svg>
+</div>
+<div class="ml-8 flex-grow pr-12">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-3">React</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-2xl">
+                        React is a JavaScript library for building user interfaces. It is maintained by Meta and a community of individual developers and companies. It allows developers to create large web applications that can change data, without reloading the page.
+                    </p>
+</div>
+<div class="flex-shrink-0 flex space-x-12 pt-1">
+<div>
+<p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Version</p>
+<p class="text-xl font-bold text-slate-900 dark:text-white">v18.2.0</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Usage</p>
+<p class="text-xl font-bold text-slate-900 dark:text-white">14 <span class="text-slate-900 dark:text-white font-bold ml-1">Applications</span></p>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<div class="flex space-x-3">
+<div class="relative flex-grow">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full pl-11 pr-4 py-2.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary dark:text-white placeholder-slate-400" placeholder="Search applications..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white px-8 py-2.5 rounded-lg text-sm font-semibold flex items-center transition-colors">
+<span class="material-icons-outlined text-lg mr-2">search</span>
+                        Search
+                    </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+<th class="px-6 py-4 border-b border-slate-100 dark:border-slate-800">Application Name</th>
+<th class="px-6 py-4 border-b border-slate-100 dark:border-slate-800">Owner</th>
+<th class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 text-right md:text-left">Last Updated</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-sm mr-4">C</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Customer Dashboard</div>
+<div class="text-xs text-slate-400 dark:text-slate-500 font-medium">ID: APP-4029</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-700 text-[10px] font-bold text-slate-500 dark:text-slate-300 flex items-center justify-center mr-3">CS</div>
+<span class="text-sm text-slate-600 dark:text-slate-300 font-medium">Customer Success</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-slate-500 dark:text-slate-400 font-medium tabular-nums">2023-10-27 14:30</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm mr-4">A</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Analytics Platform</div>
+<div class="text-xs text-slate-400 dark:text-slate-500 font-medium">ID: APP-1205</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-700 text-[10px] font-bold text-slate-500 dark:text-slate-300 flex items-center justify-center mr-3">DA</div>
+<span class="text-sm text-slate-600 dark:text-slate-300 font-medium">Data Analytics</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-slate-500 dark:text-slate-400 font-medium tabular-nums">2023-10-26 09:15</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-sm mr-4">P</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Partner Portal</div>
+<div class="text-xs text-slate-400 dark:text-slate-500 font-medium">ID: APP-3301</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-700 text-[10px] font-bold text-slate-500 dark:text-slate-300 flex items-center justify-center mr-3">BD</div>
+<span class="text-sm text-slate-600 dark:text-slate-300 font-medium">Business Dev</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-slate-500 dark:text-slate-400 font-medium tabular-nums">2023-10-25 18:45</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-lg bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold text-sm mr-4">H</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">HR Onboarding</div>
+<div class="text-xs text-slate-400 dark:text-slate-500 font-medium">ID: APP-1002</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-700 text-[10px] font-bold text-slate-500 dark:text-slate-300 flex items-center justify-center mr-3">HR</div>
+<span class="text-sm text-slate-600 dark:text-slate-300 font-medium">Human Resources</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-slate-500 dark:text-slate-400 font-medium tabular-nums">2023-10-20 11:20</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center font-bold text-sm mr-4">I</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Internal Wiki</div>
+<div class="text-xs text-slate-400 dark:text-slate-500 font-medium">ID: APP-5509</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-700 text-[10px] font-bold text-slate-500 dark:text-slate-300 flex items-center justify-center mr-3">IT</div>
+<span class="text-sm text-slate-600 dark:text-slate-300 font-medium">IT Support</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm text-slate-500 dark:text-slate-400 font-medium tabular-nums">2023-10-13 16:05</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                    Showing <span class="font-bold">1</span> to <span class="font-bold">5</span> of <span class="font-bold">14</span> results
+                </p>
+<div class="flex items-center -space-x-px">
+<button class="px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-l-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400">
+<span class="material-icons-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 bg-blue-50 dark:bg-blue-900/20 text-primary font-bold text-sm">1</button>
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 font-medium text-sm">2</button>
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 font-medium text-sm">3</button>
+<button class="px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-r-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400">
+<span class="material-icons-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<footer class="py-10 text-center">
+<p class="text-sm text-slate-400 dark:text-slate-500 font-medium">
+            © 2023 IT Infrastructure Dashboard. All rights reserved.
+        </p>
+</footer>
+
+</body></html>

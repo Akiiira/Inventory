@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Frameworks Inventory Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-16 sticky top-0 z-50">
+<div class="max-w-[1440px] mx-auto px-8 h-full flex items-center justify-between">
+<nav class="flex items-center space-x-8 h-full">
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium transition-colors" href="/Users/pornlavin/Downloads/stitch_app_inventory/2/code.html">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium transition-colors" href="/Users/pornlavin/Downloads/stitch_app_inventory/2.1/code.html">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm font-medium transition-colors" href="/Users/pornlavin/Downloads/stitch_app_inventory/2.2/code.html">My Task</a>
+<div class="h-full flex items-center relative">
+<a class="text-primary text-sm font-semibold" href="/Users/pornlavin/Downloads/stitch_app_inventory/2.3/code.html">Report</a>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"></div>
+</div>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons-outlined text-xl">search</span>
+</button>
+<div class="relative">
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 flex items-center">
+<span class="material-icons-outlined text-xl">notifications</span>
+<span class="absolute top-0 right-0 block h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white dark:ring-slate-900"></span>
+</button>
+</div>
+<div class="flex items-center space-x-3 border-l border-slate-200 dark:border-slate-800 pl-6">
+<div class="text-right">
+<p class="text-sm font-semibold leading-none">Admin User</p>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wider">IT Operations</p>
+</div>
+<img alt="Admin User Avatar" class="h-9 w-9 rounded-full object-cover ring-2 ring-slate-100 dark:ring-slate-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsDn8HahDIjDAT0IP42YNFaPhzFKz21nzIJKRMO-b2d4Hybe_7oZzPl9UzTwWllpOjHtiqOlgYKyz9BP16MphLddA7Os6jjakX1urPz-iu1L5Jrw9t9KlMTnxPiB6Q1fjVPrvdwUCJacPVeSD-mXDG31Z0iPxsHnrt_XfTEo2d9HDW9IkPWUaY3TTf-_TO6oiMWmkSY2kU8jc7br5AfW5LGoLHmzR2lo55n4lDQAdFF1EPv2oltUy5_KZOWpCT5pUz-pY_cWKSpRY"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-[1440px] w-full mx-auto px-8 py-8">
+<div class="mb-8">
+<nav aria-label="Breadcrumb" class="flex text-sm text-slate-500 dark:text-slate-400 mb-4">
+<ol class="flex items-center space-x-2">
+<li><a class="hover:text-primary" href="#">Report</a></li>
+<li><span class="material-icons-outlined text-xs">chevron_right</span></li>
+<li class="font-medium text-slate-900 dark:text-slate-200">Frameworks</li>
+</ol>
+</nav>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Frameworks Inventory</h1>
+<p class="text-slate-600 dark:text-slate-400">Detailed view of framework adoption and system dependencies across the organization.</p>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-4 mb-6 flex flex-wrap items-center gap-4">
+<div class="relative flex-grow max-w-lg">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary dark:text-white" placeholder="Search framework name..." type="text"/>
+</div>
+<button class="flex items-center px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-icons-outlined text-lg mr-2">filter_list</span>
+                Advanced Filter
+            </button>
+<button class="bg-primary hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm flex items-center">
+<span class="material-icons-outlined text-lg mr-2">search</span>
+                Search
+            </button>
+<div class="ml-auto">
+<button class="flex items-center px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-icons-outlined text-lg mr-2">download</span>
+                    Export Data
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-slate-100 dark:border-slate-800">
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Framework Name</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Current Version</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Connected Applications</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-lg">R</div>
+<span class="font-bold text-slate-900 dark:text-white">React</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">v18.2.0</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">14 Applications</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-600 dark:text-red-400 font-bold text-lg">A</div>
+<span class="font-bold text-slate-900 dark:text-white">Angular</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">v14.0.0</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">2 Applications</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-bold text-lg">V</div>
+<span class="font-bold text-slate-900 dark:text-white">Vue.js</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">v3.2.45</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">2 Applications</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 font-bold text-lg">N</div>
+<span class="font-bold text-slate-900 dark:text-white">Next.js</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">v13.4</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">0 Applications</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold text-lg">B</div>
+<span class="font-bold text-slate-900 dark:text-white">Bootstrap</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">v4.6</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">6 Applications</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-white dark:bg-slate-900 px-6 py-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800">
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                    Showing <span class="font-medium text-slate-900 dark:text-white">1</span> to <span class="font-medium text-slate-900 dark:text-white">5</span> of <span class="font-medium text-slate-900 dark:text-white">28</span> results
+                </p>
+<nav aria-label="Pagination" class="flex items-center -space-x-px">
+<button class="px-2 py-2 border border-slate-200 dark:border-slate-700 rounded-l-md hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-500 transition-colors">
+<span class="material-icons-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 bg-blue-50 dark:bg-blue-900/20 text-primary font-bold text-sm z-10 transition-colors">1</button>
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm transition-colors font-medium">2</button>
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm transition-colors font-medium">3</button>
+<button class="px-2 py-2 border border-slate-200 dark:border-slate-700 rounded-r-md hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-500 transition-colors">
+<span class="material-icons-outlined text-sm">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</main>
+<footer class="py-8 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900">
+<div class="max-w-[1440px] mx-auto px-8 text-center text-sm text-slate-500 dark:text-slate-400">
+            © 2023 IT Infrastructure Dashboard. All rights reserved.
+        </div>
+</footer>
+<div class="fixed bottom-4 right-4 z-[100]">
+<button class="w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:scale-110 transition-transform" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined">dark_mode</span>
+</button>
+</div>
+
+</body></html>

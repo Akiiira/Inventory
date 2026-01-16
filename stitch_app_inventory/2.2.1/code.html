@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advanced Filter Modal - Enterprise App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563EB",
+              "background-light": "#F9FAFB",
+              "background-dark": "#111827",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .blur-bg { filter: blur(4px); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen relative overflow-hidden">
+<div class="blur-bg min-h-screen p-8 opacity-40 dark:opacity-20 pointer-events-none">
+<header class="flex items-center justify-between mb-12">
+<div class="flex items-center space-x-8">
+<div class="text-xl font-bold text-gray-900 dark:text-white flex items-center">
+<span class="material-icons-outlined text-primary mr-2">dashboard</span>
+                    Platform
+                </div>
+<nav class="flex space-x-6 text-sm font-medium text-gray-500 dark:text-gray-400">
+<a href="#">Home</a>
+<a href="#">Dashboard</a>
+<a class="text-primary border-b-2 border-primary pb-1" href="#">My Task</a>
+<a href="#">Report</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<span class="material-icons-outlined text-gray-400">search</span>
+<span class="material-icons-outlined text-gray-400">notifications</span>
+<div class="flex items-center space-x-2">
+<div class="text-right">
+<p class="text-sm font-semibold text-gray-900 dark:text-white">Admin User</p>
+<p class="text-xs text-gray-500">IT Department</p>
+</div>
+<img alt="Profile" class="h-10 w-10 rounded-full border border-gray-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTsAdPePm4II8JpzLkYwrzync0iC_6_TuxyJh_huzifquLdFWl3Wuwq4dzOBp2pNZAMylLELcXP--Qo_987HdRJtOEY_R0THVz3LA1QXtDBt2BCQp6vY29haB1BpEz2cMETPy2W8l5aPv1lttFYczg7s2zbwqLAcruK2z84hZt6lijgm0p6M89BGw1Ffq9WV5oDL-ggFa06GKRr8fbe_Jazb7Jtfw6YshVi2zhDdcicdefnMpVLrS6m20isWfISv6Hjbbp9d6YsEw"/>
+</div>
+</div>
+</header>
+<main>
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">My Tasks</h1>
+<p class="text-gray-500 dark:text-gray-400 mb-8">Manage your assigned tasks and applications requiring action.</p>
+<div class="flex items-center justify-between mb-6">
+<div class="relative w-96">
+<span class="material-icons-outlined absolute left-3 top-2.5 text-gray-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800" placeholder="Search my tasks..." type="text"/>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg flex items-center font-medium">
+<span class="material-icons-outlined mr-2">add</span> Register Application
+                </button>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-gray-50 dark:bg-gray-900/50 border-b border-gray-200 dark:border-gray-700">
+<tr>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Application Name</th>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">App ID</th>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Status</th>
+<th class="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Last Update</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center">
+<div class="h-10 w-10 bg-blue-100 dark:bg-blue-900/30 text-primary rounded flex items-center justify-center mr-3">
+<span class="material-icons-outlined">web</span>
+</div>
+<div>
+<div class="text-sm font-medium text-gray-900 dark:text-white">Customer Service Portal</div>
+<div class="text-xs text-gray-500">Web Application</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-gray-500">APP-90234</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">Pending</span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-500">2023-08-15 10:30 AM</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+</div>
+<div class="fixed inset-0 bg-gray-900/40 dark:bg-black/60 backdrop-blur-[2px] z-40"></div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+<div class="bg-white dark:bg-gray-800 w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+<div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Advanced Filter</h2>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
+<span class="material-icons-outlined">close</span>
+</button>
+</div>
+<div class="p-6 space-y-8">
+<section>
+<h3 class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">Application Details</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Application Name</label>
+<input class="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary dark:text-white" placeholder="e.g. Customer Portal" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">App ID</label>
+<input class="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary dark:text-white" placeholder="Search by ID" type="text"/>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">Requestor Information</h3>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Request By</label>
+<div class="relative">
+<span class="material-icons-outlined absolute left-3 top-2 text-gray-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary dark:text-white" placeholder="Admin User, John Doe..." type="text"/>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">Status &amp; Timeline</h3>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Status</label>
+<div class="relative flex items-center flex-wrap gap-1.5 p-1.5 min-h-[40px] bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-xs font-medium text-gray-700 dark:text-gray-300">
+                                    Draft
+                                    <button class="ml-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-icons-outlined text-sm">close</span>
+</button>
+</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-xs font-medium text-gray-700 dark:text-gray-300">
+                                    Reject
+                                    <button class="ml-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-icons-outlined text-sm">close</span>
+</button>
+</span>
+<input class="flex-1 bg-transparent border-none p-0 text-sm focus:ring-0 dark:text-white min-w-[100px]" placeholder="Search statuses..." type="text"/>
+<span class="material-icons-outlined text-gray-400 ml-auto pr-1">expand_more</span>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Last Update Range</label>
+<div class="flex items-center space-x-2">
+<div class="relative flex-1">
+<input class="w-full pl-3 pr-8 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary dark:text-white" placeholder="mm/dd/yyyy" type="text"/>
+<span class="material-icons-outlined absolute right-2 top-2 text-gray-400 text-lg pointer-events-none">calendar_today</span>
+</div>
+<span class="text-gray-400">-</span>
+<div class="relative flex-1">
+<input class="w-full pl-3 pr-8 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary dark:text-white" placeholder="mm/dd/yyyy" type="text"/>
+<span class="material-icons-outlined absolute right-2 top-2 text-gray-400 text-lg pointer-events-none">calendar_today</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="px-6 py-4 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<button class="text-sm font-semibold text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">
+                    Reset All
+                </button>
+<div class="flex items-center space-x-3">
+<button class="px-5 py-2 text-sm font-semibold text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        Cancel
+                    </button>
+<button class="px-5 py-2 text-sm font-semibold text-white bg-primary rounded-lg hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all active:scale-95">
+                        Apply Filters
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-4 right-4 z-[60]">
+<button class="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined block dark:hidden">dark_mode</span>
+<span class="material-icons-outlined hidden dark:block">light_mode</span>
+</button>
+</div>
+
+</body></html>

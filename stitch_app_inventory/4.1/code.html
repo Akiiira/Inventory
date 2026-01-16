@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Export Applications Report Modal</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b82f6",
+                        "background-light": "#f3f4f6",
+                        "background-dark": "#111827",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .blur-bg {
+            filter: blur(8px);
+        }
+        .overlay {
+            background-color: rgba(15, 23, 42, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4">
+<div class="fixed inset-0 blur-bg z-0 pointer-events-none select-none">
+<header class="h-16 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 flex items-center justify-between px-8">
+<div class="flex items-center space-x-8">
+<div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold">IT</div>
+<nav class="flex space-x-6 text-sm font-medium text-gray-500">
+<span class="text-blue-600">Home</span>
+<span>Dashboard</span>
+<span>My Task</span>
+<span class="border-b-2 border-blue-600 pb-5">Report</span>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<span class="material-icons text-gray-400">search</span>
+<span class="material-icons text-gray-400">notifications</span>
+<div class="w-8 h-8 rounded-full bg-gray-200"></div>
+</div>
+</header>
+<main class="p-8 max-w-7xl mx-auto">
+<div class="mb-8">
+<h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Applications List</h1>
+<p class="text-gray-500">Manage and monitor all registered applications</p>
+</div>
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 h-[600px] w-full p-6">
+<div class="flex justify-between mb-6">
+<div class="h-10 w-64 bg-gray-100 dark:bg-gray-800 rounded"></div>
+<div class="h-10 w-32 bg-gray-100 dark:bg-gray-800 rounded"></div>
+</div>
+<div class="space-y-4">
+<div class="h-12 w-full bg-gray-50 dark:bg-gray-800/50 rounded"></div>
+<div class="h-12 w-full bg-gray-50 dark:bg-gray-800/50 rounded"></div>
+<div class="h-12 w-full bg-gray-50 dark:bg-gray-800/50 rounded"></div>
+</div>
+</div>
+</main>
+</div>
+<div class="fixed inset-0 overlay z-10 flex items-center justify-center">
+<div class="bg-white dark:bg-gray-900 w-full max-w-[640px] rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+<div class="flex items-center justify-between px-8 py-6 border-b border-gray-100 dark:border-gray-800">
+<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Export Applications Report</h2>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
+<span class="material-icons">close</span>
+</button>
+</div>
+<div class="px-8 py-8">
+<div class="mb-8">
+<label class="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-4 uppercase tracking-wider">Selection Method</label>
+<div class="space-y-4">
+<label class="flex items-center cursor-pointer group">
+<input class="w-5 h-5 text-primary border-gray-300 focus:ring-primary dark:bg-gray-800 dark:border-gray-700" name="selection" type="radio"/>
+<span class="ml-3 text-gray-700 dark:text-gray-300 font-medium">All Records</span>
+</label>
+<label class="flex items-center cursor-pointer group">
+<input checked="" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary dark:bg-gray-800 dark:border-gray-700" name="selection" type="radio"/>
+<span class="ml-3 text-gray-700 dark:text-gray-300 font-medium">Filter by Criteria</span>
+</label>
+</div>
+<p class="mt-4 text-sm text-gray-500 dark:text-gray-400 italic">
+                        (Filters are optional. Select one or more to narrow down your results.)
+                    </p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800/40 border border-gray-200 dark:border-gray-700 rounded-xl p-6 space-y-6">
+<div>
+<label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-2">Application Name</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-gray-400 text-sm">search</span>
+</div>
+<div class="min-h-[44px] flex flex-wrap items-center gap-2 pl-9 pr-8 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+<div class="flex items-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded text-sm font-medium border border-blue-100 dark:border-blue-800/50">
+                                    Customer Portal
+                                    <span class="material-icons text-xs ml-1 cursor-pointer">close</span>
+</div>
+<div class="flex items-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded text-sm font-medium border border-blue-100 dark:border-blue-800/50">
+                                    Field Agent Mobile
+                                    <span class="material-icons text-xs ml-1 cursor-pointer">close</span>
+</div>
+<span class="text-gray-400 text-sm">Select...</span>
+</div>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+<span class="material-icons text-gray-400 text-lg">unfold_more</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">Status</label>
+<div class="flex flex-wrap gap-8">
+<label class="flex items-center cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary dark:bg-gray-900 dark:border-gray-700" type="checkbox"/>
+<div class="flex items-center ml-2">
+<span class="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Active</span>
+</div>
+</label>
+<label class="flex items-center cursor-pointer">
+<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary dark:bg-gray-900 dark:border-gray-700" type="checkbox"/>
+<div class="flex items-center ml-2">
+<span class="w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Maintenance</span>
+</div>
+</label>
+<label class="flex items-center cursor-pointer">
+<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary dark:bg-gray-900 dark:border-gray-700" type="checkbox"/>
+<div class="flex items-center ml-2">
+<span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Retired</span>
+</div>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-2">Owner</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-gray-400 text-sm">person_outline</span>
+</div>
+<div class="min-h-[44px] flex flex-wrap items-center gap-2 pl-9 pr-8 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+<div class="flex items-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded text-sm font-medium border border-blue-100 dark:border-blue-800/50">
+                                    Customer Success
+                                    <span class="material-icons text-xs ml-1 cursor-pointer">close</span>
+</div>
+<span class="text-gray-400 text-sm">Search owner...</span>
+</div>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+<span class="material-icons text-gray-400 text-lg">unfold_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-8 py-6 border-t border-gray-100 dark:border-gray-800 flex justify-end space-x-4">
+<button class="px-8 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    Cancel
+                </button>
+<button class="px-8 py-2.5 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all">
+                    Export CSV
+                </button>
+</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Server Details - srv-prod-db-01</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<nav class="flex items-center space-x-8 h-full">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary transition-colors" href="#">My Task</a>
+<a class="text-primary font-semibold h-full flex items-center border-b-2 border-primary mt-[2px]" href="#">Report</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="text-slate-500 hover:text-primary transition-colors">
+<span class="material-icons-outlined">search</span>
+</button>
+<button class="relative text-slate-500 hover:text-primary transition-colors">
+<span class="material-icons-outlined">notifications</span>
+<span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-slate-900"></span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex items-center space-x-3">
+<div class="text-right">
+<p class="text-sm font-semibold leading-tight">Admin User</p>
+<p class="text-xs text-slate-500">IT Operations</p>
+</div>
+<img alt="Admin User Avatar" class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQRkWAvR-WgYqZPMTsjRGGfN480HNdpGIGTcQ5PC_XUQZpoNYjICWy4Ms-Un7-eTzHMGVDMdJC92NXwcvQpEGPp2m_6mCK1qu7Q3gyOIaNfwPqcOypfJR81GPilBvgdKjFKLy9Hzof6Lh8HdTDdzj2PGYIerWhIHrHWL6FgCc0UFXihazpzcjV_jL-E4YBzUyfqh86o2Kk_NbGGx7Pj89QEMMFWbP0AeC_Vywp8qwuzNTA9wIJCkGc7lAUgDsVgL6C6Wcz1anDxSc"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-7xl mx-auto px-6 py-8 w-full">
+<nav class="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400 mb-8">
+<a class="hover:text-primary" href="#">Report</a>
+<span>/</span>
+<a class="hover:text-primary" href="#">Servers</a>
+<span>/</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">srv-prod-db-01</span>
+</nav>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-8 mb-8 flex items-start justify-between">
+<div class="flex items-start space-x-6">
+<div class="h-16 w-16 bg-blue-50 dark:bg-blue-900/20 rounded-xl flex items-center justify-center text-primary shrink-0">
+<span class="material-icons-outlined text-4xl">format_list_bulleted</span>
+</div>
+<div>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">srv-prod-db-01</h1>
+<p class="text-slate-500 dark:text-slate-400 leading-relaxed max-w-2xl">
+                        Primary production database server hosting critical transactional data for core business operations. 
+                        Optimized for high IOPS with NVMe storage and configured for high availability clustering.
+                    </p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-1">Usage</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">5 Applications</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-4 flex items-center space-x-4 border-bottom border-slate-200 dark:border-slate-800">
+<div class="relative flex-grow">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-lg pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 transition-all text-slate-900 dark:text-white" placeholder="Search applications..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg text-sm font-medium flex items-center space-x-2 transition-colors">
+<span class="material-icons-outlined text-sm">search</span>
+<span>Search</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Application Name</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Owner</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Last Updated</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-4">
+<div class="h-10 w-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">C</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Core Auth Service</div>
+<div class="text-[11px] text-slate-400 dark:text-slate-500">ID: SRV-APP-4029</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center space-x-2">
+<div class="h-6 w-6 rounded-full bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-500 flex items-center justify-center font-medium">ID</div>
+<span class="text-sm text-slate-600 dark:text-slate-400">Identity Team</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">2023-10-27 14:30</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-4">
+<div class="h-10 w-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">P</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Payment Processor</div>
+<div class="text-[11px] text-slate-400 dark:text-slate-500">ID: SRV-APP-1205</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center space-x-2">
+<div class="h-6 w-6 rounded-full bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-500 flex items-center justify-center font-medium">FN</div>
+<span class="text-sm text-slate-600 dark:text-slate-400">FinTech</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">2023-10-26 09:15</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-4">
+<div class="h-10 w-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center font-bold text-sm">I</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Inventory Sync</div>
+<div class="text-[11px] text-slate-400 dark:text-slate-500">ID: SRV-APP-3301</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center space-x-2">
+<div class="h-6 w-6 rounded-full bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-500 flex items-center justify-center font-medium">LO</div>
+<span class="text-sm text-slate-600 dark:text-slate-400">Logistics</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">2023-10-25 18:45</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-4">
+<div class="h-10 w-10 rounded-lg bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold text-sm">A</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Audit Log Collector</div>
+<div class="text-[11px] text-slate-400 dark:text-slate-500">ID: SRV-APP-1002</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center space-x-2">
+<div class="h-6 w-6 rounded-full bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-500 flex items-center justify-center font-medium">SE</div>
+<span class="text-sm text-slate-600 dark:text-slate-400">Security</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">2023-10-20 11:20</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-4">
+<div class="h-10 w-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">R</div>
+<div>
+<div class="text-sm font-semibold text-slate-900 dark:text-white">Reporting Engine</div>
+<div class="text-[11px] text-slate-400 dark:text-slate-500">ID: SRV-APP-5509</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center space-x-2">
+<div class="h-6 w-6 rounded-full bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-500 flex items-center justify-center font-medium">DT</div>
+<span class="text-sm text-slate-600 dark:text-slate-400">Data Team</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">2023-10-13 16:05</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                    Showing <span class="font-semibold text-slate-900 dark:text-white">1</span> to <span class="font-semibold text-slate-900 dark:text-white">5</span> of <span class="font-semibold text-slate-900 dark:text-white">5</span> results
+                </p>
+<div class="flex items-center border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden">
+<button class="px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 border-r border-slate-200 dark:border-slate-800 text-slate-400 disabled:opacity-50" disabled="">
+<span class="material-icons-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-4 py-1.5 bg-primary text-white text-sm font-medium">1</button>
+<button class="px-4 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 border-l border-slate-200 dark:border-slate-800 text-sm text-slate-600 dark:text-slate-400">2</button>
+<button class="px-4 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 border-l border-slate-200 dark:border-slate-800 text-sm text-slate-600 dark:text-slate-400">3</button>
+<button class="px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 border-l border-slate-200 dark:border-slate-800 text-slate-400">
+<span class="material-icons-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="py-8 mt-auto border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="text-xs text-slate-400 dark:text-slate-500">© 2023 IT Infrastructure Dashboard. All rights reserved.</p>
+</div>
+</footer>
+
+</body></html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Export Servers Report - IT Management System</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        "background-light": "#f1f5f9",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .blur-bg {
+            filter: blur(4px);
+            pointer-events: none;
+        }
+        .modal-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen relative overflow-hidden">
+<div class="blur-bg w-full h-full min-h-screen bg-slate-50 dark:bg-slate-900 flex flex-col">
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-8 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="w-8 h-8 bg-primary rounded-md"></div>
+<nav class="flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+<span>Home</span>
+<span>Dashboard</span>
+<span>My Task</span>
+<span class="text-primary border-b-2 border-primary py-5">Report</span>
+</nav>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+<span class="material-symbols-outlined">notifications</span>
+<div class="flex items-center gap-2 ml-4">
+<div class="w-8 h-8 rounded-full bg-slate-200"></div>
+<div class="text-right">
+<p class="text-xs font-bold text-slate-700 dark:text-slate-200">Admin User</p>
+<p class="text-[10px] text-slate-400">IT Operations</p>
+</div>
+</div>
+</div>
+</header>
+<main class="p-8">
+<div class="text-xs text-slate-400 mb-2">Report / Servers</div>
+<h1 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-1">Server Inventory</h1>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-8">Detailed overview of servers, attributes, and statuses.</p>
+<div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 min-h-[400px]">
+<div class="flex justify-between items-center mb-6">
+<div class="w-64 h-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg"></div>
+<div class="w-32 h-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg"></div>
+</div>
+<div class="space-y-4">
+<div class="h-12 bg-slate-50 dark:bg-slate-900 rounded-lg"></div>
+<div class="h-12 bg-slate-50 dark:bg-slate-900 rounded-lg"></div>
+<div class="h-12 bg-slate-50 dark:bg-slate-900 rounded-lg"></div>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-4 text-center text-xs text-slate-400">
+            © 2023 IT Infrastructure Dashboard. All rights reserved.
+        </footer>
+</div>
+<div class="fixed inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-[2px] z-40 flex items-center justify-center p-4">
+<div class="bg-white dark:bg-slate-900 w-full max-w-[580px] rounded-xl overflow-hidden modal-shadow z-50">
+<div class="px-8 py-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800">
+<h2 class="text-xl font-bold text-slate-800 dark:text-slate-100">Export Servers Report</h2>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="px-8 py-6 space-y-6">
+<div class="space-y-3">
+<h3 class="text-[11px] font-bold text-slate-500 dark:text-slate-400 tracking-wider uppercase">Selection Method</h3>
+<div class="space-y-2">
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 text-primary border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-700" name="method" type="radio"/>
+<span class="ml-3 text-sm font-medium text-slate-700 dark:text-slate-200">All Records</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="w-5 h-5 text-primary border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-700" name="method" type="radio"/>
+<span class="ml-3 text-sm font-medium text-slate-700 dark:text-slate-200">Filter by Criteria</span>
+</label>
+</div>
+<p class="text-[11px] text-slate-400 italic font-medium">(Filters are optional. Select one or more to narrow down your results.)</p>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg p-5">
+<h3 class="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-wider uppercase mb-3">Environment Scope</h3>
+<div class="relative flex items-center w-full min-h-[44px] px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all">
+<div class="flex flex-wrap gap-2 items-center flex-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                                DEV <button class="ml-1.5 focus:outline-none"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                                UAT <button class="ml-1.5 focus:outline-none"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="text-slate-400 text-sm ml-1">Add...</span>
+</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg p-5">
+<h3 class="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-wider uppercase mb-3">Specific Servers</h3>
+<div class="relative mb-4">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 text-lg">search</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Search servers..." type="text"/>
+</div>
+<div class="space-y-3 max-h-48 overflow-y-auto pr-2">
+<label class="flex items-center cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded text-primary border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-700" type="checkbox"/>
+<span class="ml-3 text-sm font-medium text-slate-700 dark:text-slate-200">SRV-DEV-01 (DEV)</span>
+</label>
+<label class="flex items-center cursor-pointer group">
+<input class="w-5 h-5 rounded text-primary border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-700" type="checkbox"/>
+<span class="ml-3 text-sm font-medium text-slate-700 dark:text-slate-200">SRV-UAT-01 (UAT)</span>
+</label>
+<label class="flex items-center cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded text-primary border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-700" type="checkbox"/>
+<span class="ml-3 text-sm font-medium text-slate-700 dark:text-slate-200">SRV-DEV-02 (DEV)</span>
+</label>
+<label class="flex items-center cursor-pointer group">
+<input class="w-5 h-5 rounded text-primary border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-700" type="checkbox"/>
+<span class="ml-3 text-sm font-medium text-slate-700 dark:text-slate-200">SRV-UAT-02 (UAT)</span>
+</label>
+<label class="flex items-center cursor-pointer group">
+<input class="w-5 h-5 rounded text-primary border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-700" type="checkbox"/>
+<span class="ml-3 text-sm font-medium text-slate-700 dark:text-slate-200">SRV-DEV-03 (DEV)</span>
+</label>
+</div>
+</div>
+</div>
+<div class="px-8 py-6 flex items-center justify-end gap-3 bg-slate-50/50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
+<button class="px-6 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                    Cancel
+                </button>
+<button class="px-6 py-2.5 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-blue-700 transition-colors shadow-sm">
+                    Export CSV
+                </button>
+</div>
+</div>
+</div>
+
+</body></html>
