@@ -38,6 +38,9 @@
         .material-symbols-outlined {
             font-size: 20px;
         }
+        .max-w-md {
+    max-width: 28rem;
+}
     </style>
 </head>
 <body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
@@ -193,9 +196,9 @@
 <div class="space-y-6">
 <div class="bg-slate-50/50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 rounded-2xl p-8">
 <div class="flex justify-between items-start mb-6">
-<div class="space-y-2 flex-grow max-w-xs">
-<label class="text-[10px] font-black text-red-500 uppercase tracking-widest block">Server Type (VirtualBox, OpenShift, Azure, AWS)</label>
-<div class="relative flex border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-slate-800">
+<div class="max-w-md">
+<label class="block text-[10px] font-bold text-neutral-400 uppercase tracking-widest mb-1.5">SERVER TYPE <span class="text-red-500">(VIRTUALBOX, OPENSHIFT, AZURE, AWS)</span>
+</label><div class="relative flex border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-slate-800">
 <select class="flex-grow bg-transparent px-4 py-3 text-sm text-slate-900 dark:text-slate-100 appearance-none border-none focus:ring-0">
 <option>VirtualBox</option>
 </select>
@@ -239,8 +242,9 @@
 </div>
 <div class="bg-slate-50/50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 rounded-2xl p-8">
 <div class="flex justify-between items-start mb-6">
-<div class="space-y-2 flex-grow max-w-xs">
-<label class="text-[10px] font-black text-red-500 uppercase tracking-widest block">Server Type (VirtualBox, OpenShift, Azure, AWS)</label>
+<div class="max-w-md">
+<label class="block text-[10px] font-bold text-neutral-400 uppercase tracking-widest mb-1.5">SERVER TYPE <span class="text-red-500">(VIRTUALBOX, OPENSHIFT, AZURE, AWS)</span>
+</label>
 <div class="relative flex border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-slate-800">
 <select class="flex-grow bg-transparent px-4 py-3 text-sm text-slate-900 dark:text-slate-100 appearance-none border-none focus:ring-0">
 <option>OpenShift</option>
@@ -248,6 +252,7 @@
 <div class="border-l border-slate-200 dark:border-slate-700 px-3 flex items-center">
 <span class="material-symbols-outlined text-slate-500 text-sm">arrow_drop_down</span>
 </div>
+
 </div>
 </div>
 <div class="flex items-center space-x-4">
